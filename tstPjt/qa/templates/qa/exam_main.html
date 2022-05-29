@@ -1,0 +1,5 @@
+<h1> {{ exam.exam_name }} </h1>
+<li><a href="{% url 'qa:detail' exam.id %}">{{ "take the exam "}}</a></li>
+<li><a href="{% url 'qa:statistic' exam.id %}">{{ "view statistic" }}</a></li>
+
+<br><a href="{% url 'qa:index' %}">back to the main</a>

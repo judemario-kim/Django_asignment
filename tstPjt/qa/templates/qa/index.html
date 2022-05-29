@@ -1,0 +1,11 @@
+<h1>{{"Exam"}}</h1>
+{% if latest_exam_list %}
+    <ul>
+    {% for exam in latest_exam_list %}
+        <li><a href="{% url 'qa:exam_main' exam.id %}">{{ exam.exam_name}}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No exam are available.</p>
+{% endif %}
+<a href="{% url 'qa:make_exam' %}">{{"make exam"}}</a>

@@ -1,0 +1,16 @@
+<h1>{{ exam.exam_name }}</h1>
+
+<ul>
+    {% for question in exam.question_set.all %}
+        <b1>{{ question.question_text }}</b1>
+        <br>
+        {% if question.correct == 1 %}
+            <b2>{{ "right" }}</b2>
+        {% else %}
+            <b2>{{ "wrong" }}</b2>
+        {% endif %}
+        <br>
+    {% endfor %}
+    </ul>
+    <br><b3>{{ "score is " }}{{exam.score }}</b3><br>
+    <a href="{% url 'qa:index' %}">back to the main</a>

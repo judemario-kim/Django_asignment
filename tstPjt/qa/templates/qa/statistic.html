@@ -1,0 +1,11 @@
+<h1> {{ exam.exam_name }} </h1>
+{% for question in exam.question_set.all %}    
+    <h3>{{ question.question_text }}</h3>
+    <b2>{{ question.content }}</b2><br><br>
+    {% for choice in question.choice_set.all %}
+        <li>{{"choice "}}{{choice.choice_text}} -- {{choice.votes}} time{{choice.votes|pluralize}}</li>
+    {% endfor %}
+    <br>
+    <b3>{{"Correct rate: "}}{{ question.correct_rate }}{{"%"}}</b3> 
+{% endfor %}
+<br><li><a href="{% url 'qa:exam_main' exam.id %}">{{ "back to exam_main" }}</a></li>
